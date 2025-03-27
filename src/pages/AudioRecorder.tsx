@@ -3,7 +3,7 @@ import React from 'react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AudioCapture from "@/components/AudioCapture";
-import { Mic, Waveform, DownloadIcon } from "lucide-react";
+import { Mic, AudioWaveform, Download } from "lucide-react";
 
 const AudioRecorder = () => {
   return (
@@ -38,7 +38,7 @@ const AudioRecorder = () => {
           
           <div className="feature-card">
             <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-              <Waveform className="h-6 w-6 text-primary" />
+              <AudioWaveform className="h-6 w-6 text-primary" />
             </div>
             <h3 className="text-xl font-medium mb-2">Live Waveform</h3>
             <p className="text-muted-foreground">
@@ -48,7 +48,7 @@ const AudioRecorder = () => {
           
           <div className="feature-card">
             <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-              <DownloadIcon className="h-6 w-6 text-primary" />
+              <Download className="h-6 w-6 text-primary" />
             </div>
             <h3 className="text-xl font-medium mb-2">Multiple Formats</h3>
             <p className="text-muted-foreground">
