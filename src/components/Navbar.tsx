@@ -8,7 +8,16 @@ import {
   DrawerTrigger,
   DrawerClose
 } from "@/components/ui/drawer";
-import { Menu, X, Camera } from "lucide-react";
+import { Menu, X, Camera, ChevronDown } from "lucide-react";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,18 +38,60 @@ const Navbar = () => {
           {/* Desktop navigation */}
           <nav className="hidden md:flex items-center gap-6">
             <Link to="/" className="nav-link">Accueil</Link>
-            <Link to="/screen-recorder" className="nav-link">Enregistrer</Link>
-            <a href="#features" className="nav-link">Fonctionnalités</a>
-            <a href="#recording" className="nav-link">Capture</a>
-            <a href="#pricing" className="nav-link">Tarifs</a>
+            
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="nav-link">Enregistrer</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link to="/screen-recorder" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                            <div className="text-sm font-medium leading-none">Enregistreur d'écran</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              Capturez votre écran avec audio et vidéo en haute qualité
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link to="/audio-recorder" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                            <div className="text-sm font-medium leading-none">Enregistreur audio</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              Enregistrez des pistes audio claires avec notre outil d'enregistrement vocal
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <li>
+                        <NavigationMenuLink asChild>
+                          <Link to="/webcam-recorder" className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                            <div className="text-sm font-medium leading-none">Enregistreur webcam</div>
+                            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                              Capturez des vidéos avec votre webcam pour des tutoriels ou des vlogs
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+            
+            <Link to="/features" className="nav-link">Fonctionnalités</Link>
+            <Link to="/pricing" className="nav-link">Tarifs</Link>
+            <Link to="/about" className="nav-link">À propos</Link>
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
             <Button variant="ghost" asChild>
-              <a href="#">Connexion</a>
+              <Link to="/login">Connexion</Link>
             </Button>
             <Button asChild>
-              <a href="#">Essayer gratuitement</a>
+              <Link to="/signup">Essayer gratuitement</Link>
             </Button>
           </div>
 
@@ -70,18 +121,30 @@ const Navbar = () => {
                     </div>
                     <nav className="flex flex-col gap-4">
                       <Link to="/" className="text-lg font-medium py-2 border-b border-border/30" onClick={closeMenu}>Accueil</Link>
-                      <Link to="/screen-recorder" className="text-lg font-medium py-2 border-b border-border/30" onClick={closeMenu}>Enregistrer</Link>
-                      <a href="#features" className="text-lg font-medium py-2 border-b border-border/30" onClick={closeMenu}>Fonctionnalités</a>
-                      <a href="#recording" className="text-lg font-medium py-2 border-b border-border/30" onClick={closeMenu}>Capture</a>
-                      <a href="#pricing" className="text-lg font-medium py-2 border-b border-border/30" onClick={closeMenu}>Tarifs</a>
+                      
+                      <div className="py-2 border-b border-border/30">
+                        <div className="flex items-center justify-between mb-2">
+                          <span className="text-lg font-medium">Enregistrer</span>
+                          <ChevronDown className="h-4 w-4" />
+                        </div>
+                        <div className="pl-4 flex flex-col gap-2 mt-2">
+                          <Link to="/screen-recorder" className="text-base text-muted-foreground hover:text-foreground" onClick={closeMenu}>Enregistreur d'écran</Link>
+                          <Link to="/audio-recorder" className="text-base text-muted-foreground hover:text-foreground" onClick={closeMenu}>Enregistreur audio</Link>
+                          <Link to="/webcam-recorder" className="text-base text-muted-foreground hover:text-foreground" onClick={closeMenu}>Enregistreur webcam</Link>
+                        </div>
+                      </div>
+                      
+                      <Link to="/features" className="text-lg font-medium py-2 border-b border-border/30" onClick={closeMenu}>Fonctionnalités</Link>
+                      <Link to="/pricing" className="text-lg font-medium py-2 border-b border-border/30" onClick={closeMenu}>Tarifs</Link>
+                      <Link to="/about" className="text-lg font-medium py-2 border-b border-border/30" onClick={closeMenu}>À propos</Link>
                     </nav>
                   </div>
                   <div className="flex flex-col gap-2 mt-auto">
-                    <Button variant="outline" className="w-full" asChild>
-                      <a href="#">Connexion</a>
+                    <Button variant="outline" className="w-full" asChild onClick={closeMenu}>
+                      <Link to="/login">Connexion</Link>
                     </Button>
-                    <Button className="w-full" asChild>
-                      <a href="#">Essayer gratuitement</a>
+                    <Button className="w-full" asChild onClick={closeMenu}>
+                      <Link to="/signup">Essayer gratuitement</Link>
                     </Button>
                   </div>
                 </div>

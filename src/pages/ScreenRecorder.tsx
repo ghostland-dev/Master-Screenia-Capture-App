@@ -3,6 +3,7 @@ import React from 'react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScreenCapture from "@/components/ScreenCapture";
+import { MonitorIcon, Mic, Download } from "lucide-react";
 
 const ScreenRecorder = () => {
   return (
@@ -27,7 +28,7 @@ const ScreenRecorder = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
           <div className="feature-card">
             <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
-              <Monitor className="h-6 w-6 text-primary" />
+              <MonitorIcon className="h-6 w-6 text-primary" />
             </div>
             <h3 className="text-xl font-medium mb-2">Flexible Capture</h3>
             <p className="text-muted-foreground">

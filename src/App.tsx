@@ -6,6 +6,13 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import ScreenRecorder from "./pages/ScreenRecorder";
+import AudioRecorder from "./pages/AudioRecorder";
+import WebcamRecorder from "./pages/WebcamRecorder";
+import Features from "./pages/Features";
+import Pricing from "./pages/Pricing";
+import About from "./pages/About";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -19,6 +26,13 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/screen-recorder" element={<ScreenRecorder />} />
+          <Route path="/audio-recorder" element={<AudioRecorder />} />
+          <Route path="/webcam-recorder" element={<WebcamRecorder />} />
+          <Route path="/features" element={<Features />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
