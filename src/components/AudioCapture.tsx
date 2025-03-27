@@ -33,15 +33,15 @@ const AudioCapture = () => {
       mediaRecorder.start();
       setRecording(true);
       toast({
-        title: "Enregistrement démarré",
-        description: "Votre microphone est en train d'enregistrer.",
+        title: "Recording Started",
+        description: "Your microphone is now recording.",
       });
     } catch (error) {
       console.error('Error starting audio recording:', error);
       toast({
         variant: "destructive",
-        title: "Erreur d'enregistrement",
-        description: "Impossible d'accéder au microphone. Veuillez vérifier les permissions.",
+        title: "Recording Error",
+        description: "Unable to access microphone. Please check permissions.",
       });
     }
   };
@@ -53,8 +53,8 @@ const AudioCapture = () => {
       mediaRecorderRef.current.stream.getTracks().forEach(track => track.stop());
       setRecording(false);
       toast({
-        title: "Enregistrement terminé",
-        description: "Votre audio est prêt à être téléchargé.",
+        title: "Recording Completed",
+        description: "Your audio is ready to download.",
       });
     }
   };
@@ -69,8 +69,8 @@ const AudioCapture = () => {
       a.click();
       window.URL.revokeObjectURL(audioURL);
       toast({
-        title: "Téléchargement démarré",
-        description: "Votre fichier audio est en cours de téléchargement.",
+        title: "Download Started",
+        description: "Your audio file is downloading.",
       });
     }
   };
@@ -78,7 +78,7 @@ const AudioCapture = () => {
   return (
     <div className="w-full max-w-xl bg-card border rounded-lg shadow-sm overflow-hidden">
       <div className="p-6 space-y-4">
-        <div className="flex justify-center items-center h-40 bg-muted rounded-md">
+        <div className="flex justify-center items-center h-40 bg-muted rounded-md relative">
           {audioURL ? (
             <audio controls className="w-full">
               <source src={audioURL} type="audio/webm" />
@@ -86,11 +86,11 @@ const AudioCapture = () => {
             </audio>
           ) : (
             <div className="text-center p-4">
-              <Mic className="h-12 w-12 mx-auto text-muted-foreground mb-2" />
+              <Mic className={`h-12 w-12 mx-auto mb-2 ${recording ? 'text-primary animate-pulse' : 'text-muted-foreground'}`} />
               <p className="text-muted-foreground">
                 {recording 
-                  ? "Enregistrement en cours..." 
-                  : "Cliquez sur Démarrer pour commencer l'enregistrement"}
+                  ? "Recording in progress..." 
+                  : "Click Start Recording to begin"}
               </p>
             </div>
           )}
@@ -104,7 +104,7 @@ const AudioCapture = () => {
               className="bg-primary"
             >
               <Mic className="mr-2 h-4 w-4" />
-              Démarrer
+              Start Recording
             </Button>
           ) : (
             <Button 
@@ -112,7 +112,7 @@ const AudioCapture = () => {
               variant="destructive"
             >
               <Square className="mr-2 h-4 w-4" />
-              Arrêter
+              Stop Recording
             </Button>
           )}
           
@@ -122,7 +122,7 @@ const AudioCapture = () => {
               variant="outline"
             >
               <Download className="mr-2 h-4 w-4" />
-              Télécharger
+              Download
             </Button>
           )}
         </div>

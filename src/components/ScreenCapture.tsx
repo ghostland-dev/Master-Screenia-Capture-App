@@ -56,15 +56,15 @@ const ScreenCapture = () => {
       mediaRecorder.start();
       setRecording(true);
       toast({
-        title: "Enregistrement démarré",
-        description: "L'enregistrement de votre écran a commencé.",
+        title: "Recording Started",
+        description: "Your screen recording has begun.",
       });
     } catch (error) {
       console.error('Error starting screen capture:', error);
       toast({
         variant: "destructive",
-        title: "Erreur d'enregistrement",
-        description: "Impossible de capturer l'écran. Veuillez vérifier les permissions.",
+        title: "Recording Error",
+        description: "Unable to capture screen. Please check permissions.",
       });
     }
   };
@@ -80,8 +80,8 @@ const ScreenCapture = () => {
       
       setRecording(false);
       toast({
-        title: "Enregistrement terminé",
-        description: "Votre enregistrement est prêt à être téléchargé.",
+        title: "Recording Completed",
+        description: "Your recording is ready to download.",
       });
     }
   };
@@ -96,8 +96,8 @@ const ScreenCapture = () => {
       a.click();
       window.URL.revokeObjectURL(videoURL);
       toast({
-        title: "Téléchargement démarré",
-        description: "Votre fichier vidéo est en cours de téléchargement.",
+        title: "Download Started",
+        description: "Your video file is downloading.",
       });
     }
   };
@@ -105,7 +105,7 @@ const ScreenCapture = () => {
   return (
     <div className="w-full max-w-2xl bg-card border rounded-lg shadow-sm overflow-hidden">
       <div className="p-6 space-y-4">
-        <div className="aspect-video bg-black rounded-md overflow-hidden">
+        <div className="relative aspect-video bg-black rounded-md overflow-hidden">
           <video 
             ref={videoRef} 
             autoPlay 
@@ -131,7 +131,7 @@ const ScreenCapture = () => {
               className="bg-primary"
             >
               <Monitor className="mr-2 h-4 w-4" />
-              Démarrer
+              Start Recording
             </Button>
           ) : (
             <Button 
@@ -139,7 +139,7 @@ const ScreenCapture = () => {
               variant="destructive"
             >
               <Square className="mr-2 h-4 w-4" />
-              Arrêter
+              Stop Recording
             </Button>
           )}
           
@@ -149,7 +149,7 @@ const ScreenCapture = () => {
               variant="outline"
             >
               <Download className="mr-2 h-4 w-4" />
-              Télécharger
+              Download
             </Button>
           )}
         </div>
