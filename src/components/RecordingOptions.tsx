@@ -2,6 +2,7 @@
 import { FadeIn } from "@/components/animations/FadeIn";
 import { Button } from "@/components/ui/button";
 import { Monitor, Layout, MousePointer, Mic, Volume2, Pencil, Camera } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const recordingFeatures = [
   {
@@ -80,9 +81,11 @@ const RecordingOptions = () => {
             </div>
             
             <FadeIn delay={0.6}>
-              <Button className="bg-primary hover:bg-primary/90">
-                <Camera className="mr-2 h-4 w-4" />
-                Essayer maintenant
+              <Button className="bg-primary hover:bg-primary/90" asChild>
+                <Link to="/screen-recorder">
+                  <Camera className="mr-2 h-4 w-4" />
+                  Essayer maintenant
+                </Link>
               </Button>
             </FadeIn>
           </div>
