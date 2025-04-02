@@ -1,69 +1,34 @@
-# Welcome to your Lovable project
+# 📸 Screenia Capture 1.0.1
 
-## Project info
+**Screenia Capture** est un outil léger et rapide pour capturer, gérer et partager facilement des captures d'écran. Idéal pour les développeurs, créateurs de contenu, ou toute personne ayant besoin de documenter visuellement son écran de manière efficace.
 
-**URL**: https://lovable.dev/projects/9e7854c2-db2f-4c4b-8dfc-3ea01f2f863d
+![Screenia Capture Preview](https://github.com/user-attachments/assets/a3d196eb-b5b1-4dba-bf6b-f7d0073aab68)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🚀 Fonctionnalités
 
-**Use Lovable**
+- ✅ Capture d'écran instantanée (plein écran ou zone définie)
+- 📁 Sauvegarde automatique avec horodatage
+- ☁️ Intégration Cloud (optionnelle)
+- ✂️ Outils d'édition rapide : surlignage, floutage, annotation
+- 🔗 Partage rapide via lien ou QR Code
+- 🌙 Thème sombre supporté
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/9e7854c2-db2f-4c4b-8dfc-3ea01f2f863d) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🛠️ Installation
 
-**Use your preferred IDE**
+### Via GitHub Releases
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1. Télécharge la dernière version depuis [les releases GitHub](https://github.com/ismail-mouyahada/screenia-capture/releases)
+2. Exécute le fichier binaire pour ta plateforme (`.exe`, `.AppImage`, etc.)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Via le code source
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+git clone https://github.com/<ton-utilisateur>/screenia-capture.git
+cd screenia-capture
+npm install
+npm run start
 ```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/9e7854c2-db2f-4c4b-8dfc-3ea01f2f863d) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
